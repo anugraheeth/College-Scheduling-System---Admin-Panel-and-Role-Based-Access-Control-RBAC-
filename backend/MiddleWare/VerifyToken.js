@@ -10,7 +10,7 @@ const isAdmin =async(req,res,next)=>{
             return res.status(401).json({success:false,message:"Unautharised Token"})
         }
 
-        const decoded =jwt.verify(token,process.env.SECRETKEY)
+        const decoded =jwt.verify(token,'seccretkey')
 
         const user = await UserModel.findById(decoded.userId)
 
@@ -39,7 +39,7 @@ const isuser = async(req,res,next)=>{
             return res.status(401).json({success:false,message:"Unautharised Token"})
         }
 
-        const decoded =jwt.verify(token,process.env.SECRETKEY)
+        const decoded =jwt.verify(token,'seccretkey')
 
         const user = await UserModel.findById(decoded.userId)
 
